@@ -1,31 +1,46 @@
 package main
 
 import (
-	"fmt"
-	"io/ioutil"
+	"context"
+	"example/reply-back-server/handlers"
 	"log"
 	"net/http"
+	"os"
+	"os/signal"
+	"time"
 )
 
 func main() {
 
-	//on Base Path - Logs Hello World
-	http.HandleFunc("/", func(rw http.ResponseWriter, r *http.Request) {
-		log.Println("Hello World")
-		//read data from the request body , := is declare and assing in one , _ is ignoring the return type
-		d, err := ioutil.ReadAll(r.Body)
+	//on handler path uses the handlers package reference
+	l := log.New(os.Stdout, "sentiment-api ", log.LstdFlags)
+	hh := handlers.NewHi(l)
+
+	sm := http.NewServeMux()
+	sm.Handle("/", hh)
+
+	s := &http.Server{
+		Addr:         ":9090",
+		Handler:      sm,
+		IdleTimeout:  120 * time.Second,
+		WriteTimeout: 1 * time.Second,
+		ReadTimeout:  1 * time.Second,
+	}
+
+	//This creates a server to start
+	go func() {
+		err := s.ListenAndServe()
 		if err != nil {
-			//handles errors and writes message to the response writer
-			http.Error(rw, "Oops", http.StatusBadRequest)
-			return
+			log.Fatal(err)
 		}
+	}()
 
-		//printing format strings
-		log.Printf("Hi %s\n", d)
-		// write back to the response and send it back to the caller
+	sigChan := make(chan os.Signal)
+	signal.Notify(sigChan, os.Interrupt)
+	signal.Notify(sigChan, os.Kill)
+	sig := <-sigChan
+	l.Println("Received Terminate graceful Shutdow", sig)
+	tc, _ := context.WithTimeout(context.Background(), 30*time.Second)
+	s.Shutdown(tc)
 
-		fmt.Fprintf(rw, "Hi %s\n", d)
-	})
-	//This creates a server and since no custom handler is specified - it will use default serve Mux.
-	http.ListenAndServe(":9090", nil)
 }
