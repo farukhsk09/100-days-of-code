@@ -16,11 +16,13 @@ func main() {
 	l := log.New(os.Stdout, "sentiment-api ", log.LstdFlags)
 	hh := handlers.NewHi(l)
 	uh := handlers.NewUsers(l)
+	th := handlers.NewToken(l)
 
 	//create a serveMux and add the handler
 	sm := http.NewServeMux()
 	sm.Handle("/", hh)
 	sm.Handle("/get", uh)
+	sm.Handle("/validate", th)
 
 	//configure a server
 	s := &http.Server{

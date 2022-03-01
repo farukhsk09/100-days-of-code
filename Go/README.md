@@ -5,3 +5,5 @@ https://myactivity.notion.site/Go-Microservices-Write-a-server-that-takes-a-mess
 https://myactivity.notion.site/Go-Microservices-Modify-the-reply-back-server-to-use-proper-best-practices-f8fc60b00d20490d882fa25cce386a61
 
 # Day 2 - Implement a api with Struct and Implement a Get API 
+
+# Day 3 - Validate Token API - Pass Static token and send 401 when invalid
