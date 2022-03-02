@@ -8,15 +8,28 @@ import (
 	"os"
 	"os/signal"
 	"time"
+
+	"github.com/go-redis/redis"
 )
 
 func main() {
 
 	//on handler path uses the handlers package reference
 	l := log.New(os.Stdout, "sentiment-api ", log.LstdFlags)
+	//create a redis client
+	client := redis.NewClient(&redis.Options{
+		Addr:     "localhost:8080",
+		Password: "",
+		DB:       0,
+	})
+	pong, err := client.Ping().Result()
+	l.Println(pong, err)
+	if err != nil {
+		panic(err)
+	}
 	hh := handlers.NewHi(l)
 	uh := handlers.NewUsers(l)
-	th := handlers.NewToken(l)
+	th := handlers.NewToken(l, client)
 
 	//create a serveMux and add the handler
 	sm := http.NewServeMux()
