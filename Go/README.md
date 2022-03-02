@@ -7,3 +7,5 @@ https://myactivity.notion.site/Go-Microservices-Modify-the-reply-back-server-to-
 # Day 2 - Implement a api with Struct and Implement a Get API 
 
 # Day 3 - Validate Token API - Pass Static token and send 401 when invalid
+
+# Day 4 - Create a local redis image and run in local
