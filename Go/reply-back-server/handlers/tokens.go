@@ -7,6 +7,7 @@ import (
 	"time"
 
 	"github.com/go-redis/redis"
+	"github.com/google/uuid"
 )
 
 type Token struct {
@@ -21,8 +22,9 @@ func NewToken(l *log.Logger, client *redis.Client) *Token {
 func (t *Token) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
 	if r.Method == "GET" {
 		//its a get method create a token and return it
-		rw.Write([]byte("hello"))
-		statusVal := t.client.Set("hello", "yes", 120*time.Second)
+		uuidVal := uuid.New().String()
+		rw.Write([]byte(uuidVal))
+		statusVal := t.client.Set(uuidVal, "yes", 120*time.Second)
 		t.l.Println(statusVal)
 		return
 	}

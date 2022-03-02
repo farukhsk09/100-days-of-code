@@ -8,4 +8,6 @@ https://myactivity.notion.site/Go-Microservices-Modify-the-reply-back-server-to-
 
 # Day 3 - Validate Token API - Pass Static token and send 401 when invalid
 
-# Day 4 - Create a local redis image and run in local
+# Day 4 - Create a local redis image and run in local 
+
+# Part 2 - Use redis to store token and use it for authentication
