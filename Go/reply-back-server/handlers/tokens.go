@@ -4,6 +4,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"strings"
 	"time"
 
 	"github.com/go-redis/redis"
@@ -23,8 +24,9 @@ func (t *Token) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
 	if r.Method == "GET" {
 		//its a get method create a token and return it
 		uuidVal := uuid.New().String()
-		rw.Write([]byte(uuidVal))
-		statusVal := t.client.Set(uuidVal, "yes", 120*time.Second)
+		uuidToken := strings.Replace(uuidVal, "-", "", -1)
+		rw.Write([]byte(uuidToken))
+		statusVal := t.client.Set(uuidToken, "yes", 120*time.Second)
 		t.l.Println(statusVal)
 		return
 	}

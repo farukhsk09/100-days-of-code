@@ -11,3 +11,5 @@ https://myactivity.notion.site/Go-Microservices-Modify-the-reply-back-server-to-
 # Day 4 - Create a local redis image and run in local 
 
 # Part 2 - Use redis to store token and use it for authentication
+
+# Day 5 - UUID to token format
