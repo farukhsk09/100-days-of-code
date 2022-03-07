@@ -28,6 +28,28 @@ public class App
             System.out.printf("Exception is of Class %s",e.getClass());
         }
         // Define a ArrayList of Integers and Sort them . 
+        //day6();
+        //sort using comparator - need to do custom sorting objects with back of a hand 
+        day7();
+    }
+
+    private static void day7() {
+        ArrayList<Student> arrayOfObjects = new ArrayList<>();
+        // Sort a array of classmates 
+        createManyStudents(arrayOfObjects);
+        System.out.println(arrayOfObjects.toString());
+
+    }
+
+    private static void createManyStudents(ArrayList<Student> arrayOfObjects) {
+        for(int i=0;i<45;i++){
+            Student stu = new Student.StudentBuilder(i, "xysd", "11", "11").fatherName("fatherName").motherName("motherName").build();
+            arrayOfObjects.add(stu);
+        }
+        
+    }
+
+    private static void day6() {
         final Random rand = new Random();
         int[] items = new int[450];
         List<Integer> sortItems= new ArrayList<>();
