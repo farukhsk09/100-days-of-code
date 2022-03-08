@@ -30,7 +30,7 @@ public class App
         // Define a ArrayList of Integers and Sort them . 
         //day6();
         //sort using comparator - need to do custom sorting objects with back of a hand 
-        day7();
+        //day7();
     }
 
     private static void day7() {
