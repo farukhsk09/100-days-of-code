@@ -1,0 +1,15 @@
+.App{
+  display: flex;
+  height: 100vh;
+  font-family: 'Lato', sans-serif;
+}
+.sidebar{
+  width: 20vw;
+  background-color: #23425F;
+  height: 100%;
+  color: white;
+}
+.content{
+  width: 80vw;
+  height: 100%;
+}

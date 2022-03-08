@@ -1,0 +1,28 @@
+.card{
+    margin-top: 2em;
+    width: 9em;
+    height: 7em;
+    background-color: #E6DDC6;
+    border-radius: 4%;
+    border: 0.4px black solid;
+    overflow: hidden;
+    margin-right: 2em;
+}
+.card>button{
+    height: 60%;
+    width: 100%;
+    background-color: transparent;
+    z-index: 0;
+    border: 0;
+    cursor: pointer;
+    font-size: larger;
+}
+.card>h5{
+    width: 100%;
+    background-color: white;
+    height: 40%;
+    font-weight: 800;
+    position: relative;
+    bottom: 0;
+    text-align: center;
+}
