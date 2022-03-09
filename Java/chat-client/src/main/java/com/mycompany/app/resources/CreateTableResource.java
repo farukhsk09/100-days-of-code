@@ -24,14 +24,14 @@ public class CreateTableResource{
 
     @Path("/user")
     @POST
-    public TokenCustom createUser(User user){
+    public void createUser(User user,@HeaderParam("Token") String token){
         logger.info("recieved a user "+user.toString());
-
-        TokenCustom token = new TokenCustom();
-        token.setExpiry("24hr");
-        token.setToken(UUID.randomUUID().toString());
-        token.setRefresh_token("refresh_token");
-        return token;
+        //validate token using the go client
+        //insert user into dynamoDB 
+        String primaryKey = "USER#"+user.getUsername();
+        String sortKey = "PASSWORD#"+user.getPassword();
+        
+        return;
     }
     
 }
