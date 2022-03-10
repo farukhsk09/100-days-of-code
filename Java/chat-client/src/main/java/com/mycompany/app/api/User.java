@@ -3,9 +3,12 @@ package com.mycompany.app.api;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 /**User Json that needs to be inserted into the table */
+@JsonInclude(Include.NON_NULL)
 public class User {
 
     @Override

@@ -3,6 +3,7 @@ package com.mycompany.app;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import com.mycompany.app.db.UserDao;
 import com.mycompany.app.resources.CreateTableResource;
 
 import io.dropwizard.Application;
@@ -37,11 +38,8 @@ public class ChatApplication extends Application<ChatConfiguration> {
                 .endpointOverride(new URI("http://localhost:8000"))
                 .region(region)
                 .build();
-        DynamoDbClient ddbsync = DynamoDbClient.builder()
-                .endpointOverride(new URI("http://localhost:8000"))
-                .region(region)
-                .build();
-        final CreateTableResource resource = new CreateTableResource(ddb,ddbsync);
+        final UserDao userDao = new UserDao(ddb);
+        final CreateTableResource resource = new CreateTableResource(userDao);
         environment.jersey().register(resource);
     }
 
