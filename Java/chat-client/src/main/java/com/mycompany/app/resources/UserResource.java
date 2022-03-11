@@ -17,34 +17,26 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
-import com.mycompany.app.api.TokenCustom;
 import com.mycompany.app.api.User;
+import com.mycompany.app.api.UserRequest;
 import com.mycompany.app.db.UserDao;
 
 import org.eclipse.jetty.util.log.Log;
 import org.eclipse.jetty.util.log.Logger;
-
-import software.amazon.awssdk.services.dynamodb.DynamoDbAsyncClient;
-import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
-import software.amazon.awssdk.services.dynamodb.model.AttributeValue;
-import software.amazon.awssdk.services.dynamodb.model.DescribeTableRequest;
-import software.amazon.awssdk.services.dynamodb.model.GetItemRequest;
-import software.amazon.awssdk.services.dynamodb.model.GetItemResponse;
-import software.amazon.awssdk.services.dynamodb.model.PutItemRequest;
-import software.amazon.awssdk.services.dynamodb.model.PutItemResponse;
 
 
 
 
 @Path("/user")
 @Produces(MediaType.APPLICATION_JSON)
-public class CreateTableResource{
-    Logger logger = Log.getLogger(CreateTableResource.class);
+public class UserResource{
+    Logger logger = Log.getLogger(UserResource.class);
     private UserDao userDao;
-    public CreateTableResource(UserDao userDao){
+    public UserResource(UserDao userDao){
         this.userDao=userDao;
     }
 
+    /**Creates a user with password */
     @Path("/create")
     @POST
     public void createUser(User user,@HeaderParam("Token") String token) throws ExecutionException{
@@ -56,11 +48,13 @@ public class CreateTableResource{
         //insert user into dynamoDB 
     }
 
-    @GET
-    public User getUser(@QueryParam("username") String username,@QueryParam("password") String password,@HeaderParam("Token") String token){
+    @Path("/signin")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    public User getUser(UserRequest req,@HeaderParam("Token") String token){
         logger.info("getting user:::::");
-        User newUser = userDao.getUser(username, password);
-        return newUser;
+        User user = userDao.getUser(req.getUsername(), req.getPassword());
+        return user;
     }
     
 }

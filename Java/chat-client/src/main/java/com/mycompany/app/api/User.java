@@ -37,6 +37,17 @@ public class User {
     @NotBlank
     private String gender;
 
+    @JsonProperty
+    private String userId;
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
     //at the Ui we will have to restrict 
     @JsonProperty
     private String preferences;

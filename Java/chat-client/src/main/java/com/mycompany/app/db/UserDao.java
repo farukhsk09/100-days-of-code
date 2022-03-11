@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
+import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
@@ -41,6 +42,7 @@ public class UserDao {
         item.put("SKey", AttributeValue.builder().s(sortKey).build());
         item.put("Age",AttributeValue.builder().n(String.valueOf(user.getAge())).build());
         item.put("Gender",AttributeValue.builder().s(user.getGender()).build());
+        item.put("UserId",AttributeValue.builder().s(UUID.randomUUID().toString()).build());
         Optional.ofNullable(user.getPreferences()).ifPresent(value -> {
             item.put("Preferences", AttributeValue.builder().s(value).build());
         });
@@ -70,15 +72,16 @@ public class UserDao {
         GetItemResponse response=responsecf.join();
         Set<String> keys = response.item().keySet();
         List<AttributeValue> mapValues = response.item().values().stream().collect(Collectors.toList());
-        User newUser = new User();
-        newUser.setAge(Integer.parseInt(response.item().get("Age").n()));
-        newUser.setGender(response.item().get("Gender").s());
-        newUser.setUsername(username);
+        User user = new User();
+        user.setAge(Integer.parseInt(response.item().get("Age").n()));
+        user.setGender(response.item().get("Gender").s());
+        user.setUsername(username);
+        user.setUserId(response.item().get("UserId").s());
         Optional.ofNullable(response.item().get("Preferences")).ifPresent(value -> {
-            newUser.setPreferences(value.s());
+            user.setPreferences(value.s());
         });
         
-        return newUser;
+        return user;
 
     }
     
