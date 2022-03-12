@@ -11,6 +11,8 @@ import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
+import javax.ws.rs.WebApplicationException;
+
 import com.mycompany.app.api.User;
 
 import org.eclipse.jetty.util.log.Log;
@@ -69,20 +71,22 @@ public class UserDao {
 
         GetItemRequest getItemRequest = GetItemRequest.builder().tableName("MESSAGES_USER_TABLE").key(keyMap).build();
         CompletableFuture<GetItemResponse> responsecf = this.ddb.getItem(getItemRequest);
-        GetItemResponse response=responsecf.join();
-        Set<String> keys = response.item().keySet();
-        List<AttributeValue> mapValues = response.item().values().stream().collect(Collectors.toList());
-        User user = new User();
-        user.setAge(Integer.parseInt(response.item().get("Age").n()));
-        user.setGender(response.item().get("Gender").s());
-        user.setUsername(username);
-        user.setUserId(response.item().get("UserId").s());
-        Optional.ofNullable(response.item().get("Preferences")).ifPresent(value -> {
-            user.setPreferences(value.s());
-        });
-        
-        return user;
-
+        try {
+            GetItemResponse response = responsecf.join();
+            Set<String> keys = response.item().keySet();
+            List<AttributeValue> mapValues = response.item().values().stream().collect(Collectors.toList());
+            User user = new User();
+            user.setAge(Integer.parseInt(response.item().get("Age").n()));
+            user.setGender(response.item().get("Gender").s());
+            user.setUsername(username);
+            user.setUserId(response.item().get("UserId").s());
+            Optional.ofNullable(response.item().get("Preferences")).ifPresent(value -> {
+                user.setPreferences(value.s());
+            });
+            return user;
+        } catch (Exception e) {
+            throw new WebApplicationException(e.getMessage());
+        }
     }
     
 }

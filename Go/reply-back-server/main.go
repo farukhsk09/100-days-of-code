@@ -18,7 +18,7 @@ func main() {
 	l := log.New(os.Stdout, "sentiment-api ", log.LstdFlags)
 	//create a redis client
 	client := redis.NewClient(&redis.Options{
-		Addr:     "localhost:8080",
+		Addr:     "localhost:8001",
 		Password: "",
 		DB:       0,
 	})

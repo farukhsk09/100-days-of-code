@@ -1,22 +1,22 @@
 package com.mycompany.app.resources;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.UUID;
-import java.util.concurrent.CompletableFuture;
+import java.io.IOException;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.net.http.HttpResponse.BodyHandler;
+import java.net.http.HttpResponse.BodyHandlers;
 import java.util.concurrent.ExecutionException;
-import java.util.stream.Collectors;
 
-import javax.inject.Inject;
-import javax.ws.rs.GET;
 import javax.ws.rs.HeaderParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 
+import com.mycompany.app.api.TokenCustom;
 import com.mycompany.app.api.User;
 import com.mycompany.app.api.UserRequest;
 import com.mycompany.app.db.UserDao;
@@ -44,17 +44,28 @@ public class UserResource{
         //send to dao to create user
         userDao.createUser(user);
         return;
-        //validate token using the go client
-        //insert user into dynamoDB 
     }
 
     @Path("/signin")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    public User getUser(UserRequest req,@HeaderParam("Token") String token){
+    public TokenCustom getUser(UserRequest req,@HeaderParam("Token") String token){
         logger.info("getting user:::::");
-        User user = userDao.getUser(req.getUsername(), req.getPassword());
-        return user;
+        userDao.getUser(req.getUsername(), req.getPassword());
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder().uri(URI.create("http://localhost:9090/validate")).GET().build();
+        TokenCustom custom = new TokenCustom();
+        try {
+            HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
+            custom.setToken(response.body());
+            //hard coded params
+            custom.setExpiry("120seconds");
+            custom.setRefresh_token("");
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+            throw new WebApplicationException(e.getMessage());
+        }
+        return custom;
     }
     
 }
