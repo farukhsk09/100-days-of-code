@@ -2,3 +2,7 @@ logging:
   level: INFO
   loggers:
     com.mycompany.app: DEBUG
+
+# Connection Urls to Other services
+GrpcConnectionUrl: ${TokenUrl:-http://localhost:9090/validate}
+

@@ -84,8 +84,8 @@ public class UserDao {
                 user.setPreferences(value.s());
             });
             return user;
-        } catch (Exception e) {
-            throw new WebApplicationException(e.getMessage());
+        } catch (NullPointerException e) {
+            throw new WebApplicationException("User Doesn't Exist ! Please register or Check Username / Password");
         }
     }
     
