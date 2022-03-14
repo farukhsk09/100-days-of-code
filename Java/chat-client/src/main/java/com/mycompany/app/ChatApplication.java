@@ -33,11 +33,12 @@ public class ChatApplication extends Application<ChatConfiguration> {
                     final Environment environment) throws URISyntaxException {
         Region region = Region.US_EAST_1;
         DynamoDbAsyncClient ddb = DynamoDbAsyncClient.builder()
-                .endpointOverride(new URI("http://localhost:8000"))
+                .endpointOverride(new URI(configuration.getDynamoDBUrl()))
                 .region(region)
                 .build();
         final UserDao userDao = new UserDao(ddb);
-        final UserResource resource = new UserResource(userDao);
+        
+        final UserResource resource = new UserResource(userDao,configuration.getTokenUrl());
         environment.jersey().register(resource);
     }
 

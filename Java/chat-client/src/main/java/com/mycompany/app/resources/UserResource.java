@@ -31,7 +31,9 @@ import org.eclipse.jetty.util.log.Logger;
 public class UserResource{
     Logger logger = Log.getLogger(UserResource.class);
     private UserDao userDao;
-    public UserResource(UserDao userDao){
+    private String tokenurl;
+    public UserResource(UserDao userDao,String tokenurl){
+        this.tokenurl=tokenurl;
         this.userDao=userDao;
     }
 
@@ -52,7 +54,7 @@ public class UserResource{
         logger.info("getting user:::::");
         userDao.getUser(req.getUsername(), req.getPassword());
         HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder().uri(URI.create("http://localhost:9090/validate")).GET().build();
+        HttpRequest request = HttpRequest.newBuilder().uri(URI.create(this.tokenurl)).GET().build();
         TokenCustom custom = new TokenCustom();
         try {
             HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
