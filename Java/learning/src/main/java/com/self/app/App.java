@@ -26,11 +26,26 @@ public class App
         }catch(Exception e){
             //expect array index out of bounds exception
             System.out.printf("Exception is of Class %s",e.getClass());
+            System.out.println("done");
         }
         // Define a ArrayList of Integers and Sort them . 
         //day6();
         //sort using comparator - need to do custom sorting objects with back of a hand 
         //day7();
+        day8();
+    }
+
+    private static void day8() {
+        //in this function - we will explore data regarding the String class 
+
+        String inputString = "PALINDROMExyZZFER is a random Gibberish word";
+
+        //split a string 
+        System.out.println(inputString.split(" ")[0]);
+
+        //regex match - check for a string for a match
+        System.out.println(inputString.split(" ")[0].matches("(A-Z)xyZZFER"));
+
     }
 
     private static void day7() {
