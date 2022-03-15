@@ -6,3 +6,19 @@
 .heading>h1{
     font-size: 24px;
 }
+.menu{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.options{
+    padding: 15px 0;
+    line-height: 1;
+    border-radius: 4%;
+}
+.options:hover{
+    background-color: gray;
+}
+.icon{
+    margin-right: 20px;
+    width: 30px;
+}
