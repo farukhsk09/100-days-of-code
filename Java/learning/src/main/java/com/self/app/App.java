@@ -55,6 +55,10 @@ public class App
         while(usersqueue.peek()!=null){
             System.out.println(usersqueue.poll().toString());
         }
+        //poll() - removes head , and returns null if its empty
+        //peek() - checks and returns head and returns null if empty
+        //element() - check and returns head but returns exception if empty
+        //remove() - removes head but throws exception when its empty
     }
 
     private static void day8() {
