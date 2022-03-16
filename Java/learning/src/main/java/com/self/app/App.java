@@ -3,6 +3,7 @@ package com.self.app;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.PriorityQueue;
 import java.util.Random;
 
 /**
@@ -32,7 +33,28 @@ public class App
         //day6();
         //sort using comparator - need to do custom sorting objects with back of a hand 
         //day7();
-        day8();
+        //day8();
+        day9();
+    }
+
+    private static void day9() {
+        //create a queue with heterogenous data
+        //add priority to the queue using the age filter
+        //output the queue items in relevant priority order
+        PriorityQueue<User> usersqueue = new PriorityQueue<>();
+        usersqueue.add(new User("adam", 21, 1000));
+        usersqueue.add(new User("sam", 21, 1450));
+        usersqueue.add(new User("ram", 42, 100));
+        usersqueue.add(new User("terry", 30, 2000));
+        usersqueue.add(new User("yustry", 20, 4000));
+        //iterate through queue
+        for(User members : usersqueue){
+            System.out.println(members.toString());
+        }
+        System.out.println("polling from queue");
+        while(usersqueue.peek()!=null){
+            System.out.println(usersqueue.poll().toString());
+        }
     }
 
     private static void day8() {
