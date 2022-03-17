@@ -28,6 +28,10 @@
     font-weight: 600;
     background-color: #FFFEB7;
     color: #F56A47;
+    line-height: 1;
+}
+.PhWarningOctagonFill{
+    top: 1px;
 }
 .top-layer>.profile{
     background-color: #c0a8a1;
