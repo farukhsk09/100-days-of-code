@@ -34,7 +34,19 @@ public class App
         //sort using comparator - need to do custom sorting objects with back of a hand 
         //day7();
         //day8();
-        day9();
+        //day9();
+        minheap();
+    }
+
+    private static void minheap() {
+        //what does a min heap has 
+        //available size for the array - n
+        //current number of elements for the array - k
+        int[] array;
+        //minheap stratergy that recursively heapifys from bottom to top
+        //add 
+        //remove - minimum element 
+            // just put top at right bottom and remove bottom ( decrease k) - minheapify
     }
 
     private static void day9() {
