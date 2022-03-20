@@ -35,14 +35,18 @@ public class App
         //day7();
         //day8();
         //day9();
-        minheap();
+        int[] arrayvalues = new int[20];
+        minheap(arrayvalues);
     }
 
-    private static void minheap() {
+    public static void minheap(int[] array) {
         //what does a min heap has 
         //available size for the array - n
         //current number of elements for the array - k
-        int[] array;
+        int size=array.length;
+        int curr_size=array.length;
+
+
         //minheap stratergy that recursively heapifys from bottom to top
         //add 
         //remove - minimum element 
