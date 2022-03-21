@@ -45,8 +45,10 @@ public class App
         //current number of elements for the array - k
         int size=array.length;
         int curr_size=array.length;
-
-
+        
+        for(int element : array){
+            System.out.println(element);
+        }
         //minheap stratergy that recursively heapifys from bottom to top
         //add 
         //remove - minimum element 
