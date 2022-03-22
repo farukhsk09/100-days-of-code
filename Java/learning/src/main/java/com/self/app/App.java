@@ -43,12 +43,18 @@ public class App
         //what does a min heap has 
         //available size for the array - n
         //current number of elements for the array - k
-        int size=array.length;
-        int curr_size=array.length;
-        
-        for(int element : array){
-            System.out.println(element);
-        }
+        MinHeap min_heap = new MinHeap(11);
+        min_heap.insert(1);
+        min_heap.insert(9);
+        min_heap.insert(15);
+        System.out.println(min_heap.toString());
+        min_heap.insert(4);
+        min_heap.insert(11);
+        min_heap.insert(18);
+        System.out.println(min_heap.toString());
+        System.out.println(min_heap.pop());
+        System.out.println(min_heap.toString());
+
         //minheap stratergy that recursively heapifys from bottom to top
         //add 
         //remove - minimum element 
