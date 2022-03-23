@@ -35,11 +35,11 @@ public class App
         //day7();
         //day8();
         //day9();
-        int[] arrayvalues = new int[20];
-        minheap(arrayvalues);
+        //minheap();
+        
     }
 
-    public static void minheap(int[] array) {
+    public static void minheap() {
         //what does a min heap has 
         //available size for the array - n
         //current number of elements for the array - k
