@@ -1,5 +1,92 @@
 .Content{
-    width: 80vw;
+    width: 90vw;
     height: 100vh;
-    margin-left: 10px;
+    padding-left: 10px;
+    color: white;
+    background-color: rgb(44, 43, 43);
+}
+.header{
+    display: flex;
+    margin: 1em;
+}
+.header>h1{
+    margin: 0;
+    width: 30vw;
+}
+.header>input{
+    height: 2em;
+    margin-top: 0.5em;
+    width: 14vw;
+    background-color: grey;
+    border-radius: 3%;
+    margin-right: 3vw;
+}
+.header>.profile{
+    width: 20vw;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1em;
+}
+.side{
+    width: 60vw;
+    min-width: 52em;
+    overflow: hidden;
+}
+.balances{
+    display: flex;
+    justify-content: space-between;
+    width: 60vw;
+    min-width: 52em;
+}
+.special{
+    background-color: blue !important;
+}
+.card{
+    width: 150px;
+    height: 150px;
+    border-radius: 4%;
+    padding: 20px;
+    background-color: #413D3D;
+}
+.card>h4{
+    margin: 0;
+    margin-bottom: 1px;
+}
+.card>h1{
+    margin: 0;
+}
+.card>.icon{
+    height: 51px;
+    width: 51px;
+    border-radius: 40%;
+}
+.card>.icon>*{
+    height: 40px;
+    width: 40px;
+}
+.yellow{
+    color: #feb74d;
+}
+.panels{
+    width: 60vw;
+    min-width: 52em;
+    margin-top: 20px;
+    display: flex;
+}
+.panels>.large{
+    width: 30em;
+    height: 15em;
+    margin-right: 30px;
+}
+.panels>.medium{
+    width: 18em;
+    height: 15em;
+}
+
+.transactions{
+    width: 50vw;
+    min-width: 52em;
+    margin-top: 20px;
+    display: flex;
+    border-radius: 1%;
 }
