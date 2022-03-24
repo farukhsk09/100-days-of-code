@@ -4,10 +4,13 @@
     padding-left: 10px;
     color: white;
     background-color: rgb(44, 43, 43);
+    display: flex;
+    flex-wrap: wrap;
 }
 .header{
     display: flex;
     margin: 1em;
+    width: 100%;
 }
 .header>h1{
     margin: 0;
@@ -29,23 +32,26 @@
 }
 .side{
     width: 60vw;
-    min-width: 52em;
+    min-width: 55em;
     overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 30px;
 }
 .balances{
     display: flex;
     justify-content: space-between;
     width: 60vw;
-    min-width: 52em;
+    min-width: 55em;
 }
 .special{
-    background-color: blue !important;
+    background-color: #3434a2 !important;
 }
 .card{
-    width: 150px;
+    width: 170px;
     height: 150px;
     border-radius: 4%;
-    padding: 20px;
+    padding: 10px;
     background-color: #413D3D;
 }
 .card>h4{
@@ -69,24 +75,108 @@
 }
 .panels{
     width: 60vw;
-    min-width: 52em;
+    min-width: 55em;
     margin-top: 20px;
     display: flex;
+    justify-content: space-between;
 }
 .panels>.large{
     width: 30em;
     height: 15em;
     margin-right: 30px;
+    border-radius: 1%;
 }
 .panels>.medium{
     width: 18em;
     height: 15em;
+    border-radius: 1%;
 }
 
 .transactions{
     width: 50vw;
-    min-width: 52em;
+    min-width: 55em;
     margin-top: 20px;
     display: flex;
     border-radius: 1%;
+}
+.actions{
+    min-width: 19em;
+    height: 50vh;
+    min-height: 25em;
+    border-radius: 1%;
+    padding: 25px;
+}
+.credit{
+    width: 16em;
+    height: 8em;
+    margin-top: 10px;
+}
+.card>.small{
+    height: 30px;
+    width: 30px;
+    border-radius: 40%;
+}
+.card>.small>*{
+    height: 20px;
+    width: 20px;
+}
+.credit>h5{
+    margin: 0;
+}
+.logo{
+    width: 100%;
+    text-align: right;
+    font-style: italic;
+    font-weight: 900;
+    font-size: 20px;
+}
+.sheet{
+    width: 100%;
+    display: flex;
+    
+}
+.lighter{
+    background-color: #726b6b;
+}
+.sheet>h3{
+    margin: 0;
+    font-size: large;
+}
+.sheet>h5{
+    margin: 0;
+    margin-left: 20px;
+    margin-top: 5px;
+}
+.green{
+    color: aquamarine;
+}
+.red{
+    color:rgb(243, 103, 103)
+}
+.button{
+    width: 17em;
+    height: 2em;
+    text-align: center;
+    font-weight: bolder;
+    cursor: pointer;
+    padding: 0;
+}
+.transfer{
+    min-width: 19em;
+    height: 20vh;
+    min-height: 10em;
+    border-radius: 1%;
+    padding: 25px;
+    margin-top: 10px;
+}
+.transfer>.profiles{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.profiles>*{
+    margin-top: 10px;
+    margin-left: 10px;
+    height: 1.4em;
+    width: 1.4em;
 }

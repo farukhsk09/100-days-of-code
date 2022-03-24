@@ -4,3 +4,10 @@
     color: white;
     background-color: rgb(41, 40, 40);
 }
+ul{
+    list-style-type: none;
+    font-size: 20px;
+}
+ul>li{
+    margin-top: 2em;
+}
