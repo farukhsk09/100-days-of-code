@@ -2,9 +2,11 @@ import './Sidebar.css';
 function Sidebar(){
     return (
         <div className="Sidebar">
-            <div className="logo">LOGO</div>
+            <div className="middle">
+              <IcBaselineOfflineBolt className='big blue'></IcBaselineOfflineBolt>
+            </div>
             <ul>
-                <li><IcBaselineDashboard></IcBaselineDashboard></li>
+                <li><IcBaselineDashboard className='blue'></IcBaselineDashboard></li>
                 <li><IonWallet></IonWallet></li>
                 <li><CiTransfer></CiTransfer></li>
                 <li><MdiFileMultipleOutline></MdiFileMultipleOutline></li>
@@ -47,4 +49,11 @@ export function IcTwotoneAnalytics(props) {
       <svg width="1em" height="1em" viewBox="0 0 24 24" {...props}><path fill="currentColor" d="M5 5h14v14H5z" opacity=".3"></path><path fill="currentColor" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"></path><path fill="currentColor" d="M7 12h2v5H7zm8-5h2v10h-2zm-4 7h2v3h-2zm0-4h2v2h-2z"></path></svg>
     )
   }
+
+
+export function IcBaselineOfflineBolt(props) {
+  return (
+    <svg width="1em" height="1em" viewBox="0 0 24 24" {...props}><path fill="currentColor" d="M12 2.02c-5.51 0-9.98 4.47-9.98 9.98s4.47 9.98 9.98 9.98s9.98-4.47 9.98-9.98S17.51 2.02 12 2.02zM11.48 20v-6.26H8L13 4v6.26h3.35L11.48 20z"></path></svg>
+  )
+}
 export default Sidebar;

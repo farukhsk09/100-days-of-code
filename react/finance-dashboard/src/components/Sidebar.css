@@ -1,5 +1,5 @@
 .Sidebar{
-    width: 10vw;
+    width: 7vw;
     height: 100vh;
     color: white;
     background-color: rgb(41, 40, 40);
@@ -10,4 +10,17 @@ ul{
 }
 ul>li{
     margin-top: 2em;
+}
+.blue{
+    color: #3434a2;
+    font-size: 1.2em;
+}
+.middle{
+    text-align: center;
+    font-size: 1.2em;
+    height: 1em;
+    padding: 25px;
+}
+.big{
+    font-size: 35px;
 }
