@@ -71,3 +71,13 @@ export function IcBaselineNavigateNext(props) {
       <svg width="1em" height="1em" viewBox="0 0 24 24" {...props}><path fill="currentColor" d="M10 6L8.59 7.41L13.17 12l-4.58 4.59L10 18l6-6z"></path></svg>
     )
   }
+
+
+//   let Components = {};
+
+//     //Components['IcBaselineNavigateNext'] = require(IcBaselineNavigateNext).default;
+//     Components['EpWalletFilled'] = "EpWalletFilled";
+//     //Components['FlatColorIconsDonate'] = require(FlatColorIconsDonate).default;
+//     //Components['FlatColorIconsSalesPerformance'] = require(FlatColorIconsSalesPerformance).default;
+
+// export default Components;

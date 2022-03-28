@@ -1,38 +1,25 @@
+import CardPanels from './CardPanels';
 import './Content.css';
-import {EpWalletFilled,FlatColorIconsDonate,FlatColorIconsSalesPerformance,IconParkOutlineExpenses,TwemojiCreditCard,MdiFaceManProfile,MdiFaceWomanProfile,
+import Header from './Header';
+import {FlatColorIconsDonate,FlatColorIconsSalesPerformance,IconParkOutlineExpenses,TwemojiCreditCard,MdiFaceManProfile,MdiFaceWomanProfile,
     CarbonUserProfile,EtProfileFemale,EtProfileMale,IcBaselineNavigateNext
 } from './Icons.js';
 function Content() {
     return (
         <div className="Content">
-            <div className="header">
-                <h1>Dashboard</h1>
-                <input></input>
-                <Profile></Profile>
-            </div>
+            <Header></Header>
             <div className="side">
                 <div className="balances">
-                    <div className="card special">
-                        <div className="icon">
-                            <EpWalletFilled></EpWalletFilled>
-                        </div>
-                        <h4>Balance</h4>
-                        <h1>$2190.19</h1>
-                    </div>
-                    <div className="card">
-                        <div className="icon">
-                            <FlatColorIconsDonate></FlatColorIconsDonate>
-                        </div>
-                        <h4>Income</h4>
-                        <h1>$21.30</h1>
-                    </div>
-                    <div className="card">
+                    <CardPanels name="Balance" value="$2190.19" className="special" icon="EpWalletFilled"></CardPanels>
+                    <CardPanels name="Income" value="$21.30" icon="FlatColorIconsDonate"></CardPanels>
+                    <CardPanels name="Savings" value="$1875.19" icon="FlatColorIconsSalesPerformance"></CardPanels>
+                    {/* <div className="card">
                         <div className="icon">
                             <FlatColorIconsSalesPerformance></FlatColorIconsSalesPerformance>
                         </div>
                         <h4>Savings</h4>
                         <h1>$1875.19</h1>
-                    </div>
+                    </div> */}
                     <div className="card">
                         <div className="icon">
                             <IconParkOutlineExpenses className="yellow"></IconParkOutlineExpenses>
@@ -99,15 +86,7 @@ function Content() {
     );
 }
 
-function Profile() {
-    return (
-        <div className="profile">
-            chat icon
-            <div className="notification">notification</div>
-            <div className="menu">profile</div>
-        </div>
-    );
-}
+
 
 
 
