@@ -1,5 +1,5 @@
 import './CardPanels.css';
-import {EpWalletFilled} from './Icons';
+import {FlatColorIconsDonate,FlatColorIconsSalesPerformance,EpWalletFilled,IconParkOutlineExpenses} from './Icons';
 import React, { Suspense } from "react";
 
 function CardPanels(props) {
@@ -29,7 +29,21 @@ function CardPanels(props) {
 
 function EvaluatedIcon(props){
     if(props.icon == 'EpWalletFilled'){
-        return <EpWalletFilled></EpWalletFilled>;
+        return (<div className="icon">
+                <EpWalletFilled></EpWalletFilled>
+            </div>);
+    }else if(props.icon=='FlatColorIconsDonate'){
+        return (<div className="icon">
+                <FlatColorIconsDonate></FlatColorIconsDonate>
+            </div>);
+    }else if(props.icon == 'FlatColorIconsSalesPerformance'){
+        return (<div className="icon">
+                <FlatColorIconsSalesPerformance></FlatColorIconsSalesPerformance>
+            </div>);
+    }else{
+        return (<div className="icon">
+                <IconParkOutlineExpenses className="yellow"></IconParkOutlineExpenses>
+            </div>);
     }
 }
 

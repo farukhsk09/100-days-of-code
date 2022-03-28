@@ -13,20 +13,21 @@ function Content() {
                     <CardPanels name="Balance" value="$2190.19" className="special" icon="EpWalletFilled"></CardPanels>
                     <CardPanels name="Income" value="$21.30" icon="FlatColorIconsDonate"></CardPanels>
                     <CardPanels name="Savings" value="$1875.19" icon="FlatColorIconsSalesPerformance"></CardPanels>
-                    {/* <div className="card">
+                    <CardPanels name="Expenses" value="$19.112" icon="IconParkOutlineExpenses"></CardPanels>
+                    {/* {/* <div className="card">
                         <div className="icon">
                             <FlatColorIconsSalesPerformance></FlatColorIconsSalesPerformance>
                         </div>
                         <h4>Savings</h4>
                         <h1>$1875.19</h1>
-                    </div> */}
+                    </div>
                     <div className="card">
                         <div className="icon">
                             <IconParkOutlineExpenses className="yellow"></IconParkOutlineExpenses>
                         </div>
                         <h4>Expenses</h4>
                         <h1>$19.112</h1>
-                    </div>
+                    </div> */}
                 </div>
                 <div className="panels">
                     <div className="card large">
