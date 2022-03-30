@@ -1,10 +1,14 @@
 import CardPanels from './CardPanels';
 import './Content.css';
 import Header from './Header';
-import {FlatColorIconsDonate,FlatColorIconsSalesPerformance,IconParkOutlineExpenses,TwemojiCreditCard,MdiFaceManProfile,MdiFaceWomanProfile,
+import {TwemojiCreditCard,MdiFaceManProfile,MdiFaceWomanProfile,
     CarbonUserProfile,EtProfileFemale,EtProfileMale,IcBaselineNavigateNext
 } from './Icons.js';
 function Content() {
+    const transactions = [];
+    for (let index = 0; index < 20; index++) {
+        transactions.push(<h4>{index}</h4>)
+    }
     return (
         <div className="Content">
             <Header></Header>
@@ -14,20 +18,6 @@ function Content() {
                     <CardPanels name="Income" value="$21.30" icon="FlatColorIconsDonate"></CardPanels>
                     <CardPanels name="Savings" value="$1875.19" icon="FlatColorIconsSalesPerformance"></CardPanels>
                     <CardPanels name="Expenses" value="$19.112" icon="IconParkOutlineExpenses"></CardPanels>
-                    {/* {/* <div className="card">
-                        <div className="icon">
-                            <FlatColorIconsSalesPerformance></FlatColorIconsSalesPerformance>
-                        </div>
-                        <h4>Savings</h4>
-                        <h1>$1875.19</h1>
-                    </div>
-                    <div className="card">
-                        <div className="icon">
-                            <IconParkOutlineExpenses className="yellow"></IconParkOutlineExpenses>
-                        </div>
-                        <h4>Expenses</h4>
-                        <h1>$19.112</h1>
-                    </div> */}
                 </div>
                 <div className="panels">
                     <div className="card large">
@@ -38,7 +28,8 @@ function Content() {
                     </div>
                 </div>
                 <div className="transactions card">
-                    <h4>Transactions</h4>
+                    <div className='sticky'><h4>Transactions</h4></div>
+                    {transactions}
                 </div>
             </div>
 

@@ -3,18 +3,7 @@ import {FlatColorIconsDonate,FlatColorIconsSalesPerformance,EpWalletFilled,IconP
 import React, { Suspense } from "react";
 
 function CardPanels(props) {
-    const IconComponent = React.lazy(() => EpWalletFilled);
-    // const IconComponent2 = require(EpWalletFilled).default;
-    //const ComponentToRender = Components[EpWalletFilled];
-    // if(props.icon == "EpWalletFilled"){
-    //     IconComponent = () => {return (<div className="icon">
-    //             <EpWalletFilled></EpWalletFilled>
-    //         </div>);}
-    // }else{
-    //     IconComponent = () => {return (<div className="icon">
-    //             <EpWalletFilled></EpWalletFilled>
-    //         </div>);}
-    // }
+    // const IconComponent = React.lazy(() => EpWalletFilled);
     
     return (
         <Suspense fallback={<div>Loading...</div>}>
@@ -28,15 +17,15 @@ function CardPanels(props) {
 }
 
 function EvaluatedIcon(props){
-    if(props.icon == 'EpWalletFilled'){
+    if(props.icon === 'EpWalletFilled'){
         return (<div className="icon">
                 <EpWalletFilled></EpWalletFilled>
             </div>);
-    }else if(props.icon=='FlatColorIconsDonate'){
+    }else if(props.icon==='FlatColorIconsDonate'){
         return (<div className="icon">
                 <FlatColorIconsDonate></FlatColorIconsDonate>
             </div>);
-    }else if(props.icon == 'FlatColorIconsSalesPerformance'){
+    }else if(props.icon === 'FlatColorIconsSalesPerformance'){
         return (<div className="icon">
                 <FlatColorIconsSalesPerformance></FlatColorIconsSalesPerformance>
             </div>);

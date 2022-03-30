@@ -1,6 +1,7 @@
 .Content{
     width: 93vw;
-    height: 100vh;
+    /* min-height: 100vh; */
+    /* max-height: max-content; */
     padding-left: 10px;
     color: white;
     background-color: rgb(44, 43, 43);
@@ -33,7 +34,8 @@
 .side{
     width: 60vw;
     min-width: 55em;
-    overflow: hidden;
+    height: 100vh;
+    overflow: scroll;
     display: flex;
     flex-wrap: wrap;
     margin-right: 30px;
@@ -96,8 +98,21 @@
     width: 50vw;
     min-width: 55em;
     margin-top: 20px;
-    display: flex;
+    overflow: scroll;
+    /* display: flex; */
     border-radius: 1%;
+    height: 19em;
+    padding: 0;
+}
+.sticky{
+    position: sticky;
+    top: 0;
+    background-color: #413D3D;
+    padding: 10px;
+}
+.sticky>h4{
+    margin: 0;
+    margin-bottom: 1px;
 }
 .actions{
     min-width: 19em;
