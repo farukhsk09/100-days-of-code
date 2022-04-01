@@ -12,4 +12,5 @@ Please refer individual folder Readme files for the progress and the Tasks being
 
 31-mar - Leetcode day
 
-1/apr - React Handling events , Conditional Rendering , Lists and keys , Forms - 
+1/apr - Leetcode DFS and work office
+2/apr - React Handling events , Conditional Rendering , Lists and keys , Forms - 
