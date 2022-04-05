@@ -14,5 +14,6 @@ Please refer individual folder Readme files for the progress and the Tasks being
 
 1/apr - Leetcode DFS and work office
 2/apr - off day
-3/apr - 
-4/apr - 
+3/apr - off day
+4/apr - off day
+5th apr - off day
