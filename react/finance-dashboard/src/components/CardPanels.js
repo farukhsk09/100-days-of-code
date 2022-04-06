@@ -1,6 +1,7 @@
 import './CardPanels.css';
-import {FlatColorIconsDonate,FlatColorIconsSalesPerformance,EpWalletFilled,IconParkOutlineExpenses} from './Icons';
+
 import React, { Suspense } from "react";
+import EvaluatedIcon from './DynamicIcons';
 
 function CardPanels(props) {
     // const IconComponent = React.lazy(() => EpWalletFilled);
@@ -16,24 +17,6 @@ function CardPanels(props) {
     );
 }
 
-function EvaluatedIcon(props){
-    if(props.icon === 'EpWalletFilled'){
-        return (<div className="icon">
-                <EpWalletFilled></EpWalletFilled>
-            </div>);
-    }else if(props.icon==='FlatColorIconsDonate'){
-        return (<div className="icon">
-                <FlatColorIconsDonate></FlatColorIconsDonate>
-            </div>);
-    }else if(props.icon === 'FlatColorIconsSalesPerformance'){
-        return (<div className="icon">
-                <FlatColorIconsSalesPerformance></FlatColorIconsSalesPerformance>
-            </div>);
-    }else{
-        return (<div className="icon">
-                <IconParkOutlineExpenses className="yellow"></IconParkOutlineExpenses>
-            </div>);
-    }
-}
+
 
 export default CardPanels;
