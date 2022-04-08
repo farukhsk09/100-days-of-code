@@ -18,3 +18,4 @@ Please refer individual folder Readme files for the progress and the Tasks being
 4/apr - off day
 5th apr - off day
 6th apr - off day
+7th apr - pushed changes to python about leetcode solutions
