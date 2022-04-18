@@ -21,3 +21,4 @@ Please refer individual folder Readme files for the progress and the Tasks being
 7th apr - pushed changes to python about leetcode solutions
 
 17th apr - back from trip
+18th apr - leetcode 230. Kth Smallest Element in a BST
