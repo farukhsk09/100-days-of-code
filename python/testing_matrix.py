@@ -5,6 +5,7 @@ import queue
 # you can write to stdout for debugging purposes, e.g.
 # print("this is a debug message")
 from collections import deque
+
 def fillDown(B,i,j):
     row_len = len(B[0])
     column_len = len(B)
@@ -113,3 +114,6 @@ print(solution(B))
 myQueue = []
 myQueue.append((1,2))
 print(myQueue.pop()[0])
+
+saveList=[]
+saveList.extend([1,2])
