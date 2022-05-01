@@ -5,12 +5,6 @@ class Solution:
         #if 1 , have a visited matrix - check if its already visited else
         #dive in - visit all its neighbours - dive in for each 1 - update visited to true 
         #count+1 after came back to the home
-        def checkInside(i,j):
-            if (i < 0 or i>n):
-                return False
-            if (j < 0 or j>m):
-                return False
-            return True
         def dfs(grid,i,j):
             #left 
             if not((i-1 < 0 or i-1>=n) or (j < 0 or j>=m)):
