@@ -37,7 +37,8 @@ class Solution:
         #
         intervals_final=[]
         newInterval=[intervals[0][0],intervals[0][1]]
-        sorted(intervals,key=lambda x: x[0],reverse=True)
+        intervals=sorted(intervals,key=lambda x: (x[0],x[1]))
+        print(intervals)
         selected=[-1,-1]
         for index,[start,end] in enumerate(intervals):
             if selected == [-1,-1]:
@@ -52,9 +53,6 @@ class Solution:
                     selected=merged
                 else:
                     intervals_final.append([start,end])
-                    selected=[-1,-1]
+                    selected=[start,end]
                     
         return intervals_final
-
-a=Solution()
-print(a.merge([[2,3],[4,5],[6,9],[7,8]]))
