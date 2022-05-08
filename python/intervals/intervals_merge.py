@@ -2,6 +2,23 @@ from heapq import merge
 
 
 class Solution:
+    def overlap(self,selection,item):
+        if selection[0]<=item[0] and selection[1]<item[0]:
+            return [-1,-1]
+        elif selection[0]<=item[0] and selection[1]==item[0]:
+            return [selection[0],item[1]]
+        elif selection[0]<=item[0] and selection[1]<=item[1]:
+            return [selection[0],item[1]]
+        elif selection[0]<=item[0] and selection[1]>item[1]:
+            return [selection[0],selection[1]]
+        elif selection[0]>=item[0] and selection[1]<=item[1]:
+            return [item[0],item[1]]
+        elif selection[0]>=item[0] and selection[0]<=item[1]:
+            return [item[0],selection[1]]
+        else:
+            return [-1,-1]
+        
+
     def merge(self, intervals):
         #traverse the intervals
         #if start<newInterval[start] and newInterval[start]<end:
@@ -21,33 +38,22 @@ class Solution:
         intervals_final=[]
         newInterval=[intervals[0][0],intervals[0][1]]
         sorted(intervals,key=lambda x: x[0],reverse=True)
-        for start,end in intervals:
-            if start>newInterval[0] and start>newInterval[1] and newInterval[0]!=-1:
-                intervals_final.append(newInterval)
-                intervals_final.append([start,end])
-                newInterval=[start,end]
-                # newInterval=[-1,-1]
+        selected=[-1,-1]
+        for index,[start,end] in enumerate(intervals):
+            if selected == [-1,-1]:
+                selected=[start,end]
+                intervals_final.append(selected)
                 continue
-            elif start<=newInterval[0] and newInterval[0]<=end and newInterval[0]!=-1:
-                if newInterval[1]<end:
-                    intervals_final.append([start,end])
-                    newInterval=[-1,-1]
-                else:
-                    # intervals_final.append([start,newInterval[1]])
-                    newInterval=[start,newInterval[1]]
-            elif start>newInterval[0] and start<=newInterval[1] and newInterval[0]!=-1:
-                if newInterval[1]<end:
-                    intervals_final.append([newInterval[0],end])
-                    newInterval=[-1,-1]
-                else:
-                    continue
             else:
-                intervals_final.append([start,end])
-            # print(start,end)
-        if newInterval[0] ==-1:
-            return intervals_final
-        else:
-            intervals_final.append(newInterval)
+                merged =self.overlap(selected,[start,end])
+                if merged != [-1,-1]:
+                    intervals_final.pop()
+                    intervals_final.append(merged)
+                    selected=merged
+                else:
+                    intervals_final.append([start,end])
+                    selected=[-1,-1]
+                    
         return intervals_final
 
 a=Solution()
