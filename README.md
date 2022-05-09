@@ -23,3 +23,4 @@ Please refer individual folder Readme files for the progress and the Tasks being
 17th apr - back from trip
 18th apr - leetcode 230. Kth Smallest Element in a BST
 19th apr - leetcode 1299 , needed hint but a easy problem
+20th apr - 09 may  leetcode problems one per day
