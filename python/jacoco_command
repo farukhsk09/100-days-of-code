@@ -1,0 +1,3 @@
+org.jacoco:jacoco-maven-plugin:prepare-agent install site sonar:sonar -Dsonar.java.source=11 -DskipTests=false
+
+
