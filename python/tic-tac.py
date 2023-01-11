@@ -63,6 +63,8 @@ def playTicTac():
     while(True):
         #user input - pos , pos1
         #get input 
+        # print(arr)
+        print("input :")
         pos,pos1=input().split(' ')
         if user>=2:
             user=0
